@@ -1,0 +1,13 @@
+To start app:
+    run runapp.bat
+    open url http://localhost:8070/home
+	admin credentials : admin/admin
+
+to open db DB:
+    http://localhost:8070/h2-console/
+    Saved Settings:Generic H2 (Embedded)
+	Driver Class:   org.h2.Driver
+	JDBC URL:  jdbc:h2:mem:shopping_cart_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+	User Name: sa
+	
+	

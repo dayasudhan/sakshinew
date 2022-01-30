@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="/fragments/header :: header"/>
+
+</head>
+
+<body >
+	 	
+<div th:replace="/fragments/header :: navbar"/>
+
+<div class="container">
+
+    <div th:replace="/fragments/products :: products"/>
+
+  <!--  <div th:replace="/fragments/pagination :: pagination(URLparameter='/home')"/>-->  
+
+</div>
+<center><table>
+				<tr>
+					<td>
+  <div class="alert alert-info" th:if="${successMessage}" th:utext="${successMessage}"></div>
+	</td>
+			 </tr>
+				</table></center>
+<div th:replace="/fragments/footer :: footer"/>
+
+
+</body>
+</html>

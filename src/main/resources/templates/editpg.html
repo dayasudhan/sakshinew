@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="/fragments/header :: header"/>
+</head>
+<body>
+<div th:replace="/fragments/header :: navbar"/>
+	<div align="center">
+		<h1>Edit Form</h1>
+		   <div class="alert alert-info" th:if="${successMessage}" th:utext="${successMessage}"></div>
+		<form th:action="@{/edit}" th:object="${pg}" method="POST" enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td>
+						<input type="hidden" th:field="*{id}"
+						name="id" />
+				
+				
+	
+
+		
+			
+			           <div class="form-group">
+                    <label th:if="${#fields.hasErrors('adharNo')}" th:errors="*{adharNo}"
+                           class="alert alert-danger"></label>
+                    <input type="text" th:field="*{adharNo}" placeholder="adharNo"
+                           class="form-control input-lg"/>
+                </div>
+             <div class="form-group">
+                    <label th:if="${#fields.hasErrors('occupation')}" th:errors="*{occupation}"
+                           class="alert alert-danger"></label>
+                    <input type="text" th:field="*{occupation}" placeholder="occupation"
+                           class="form-control input-lg"/>
+                </div>
+                <div class="form-group">
+                    <label th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+                           class="alert alert-danger"></label>
+                    <input type="text" th:field="*{address}" placeholder="address"
+                           class="form-control input-lg"/>
+                </div>
+
+                <div class="form-group">
+                    <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                           class="alert alert-danger"></label>
+                    <input type="text" th:field="*{email}" placeholder="Email"
+                           class="form-control input-lg"/>
+                </div>
+
+                <div class="form-group">
+                    <label th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}"
+                           class="alert alert-danger"></label>
+                    <input type="text" th:field="*{phoneNo}" placeholder="phoneNo"
+                           class="form-control input-lg"/>
+                </div>
+                <div class="form-group">
+                    <label th:if="${#fields.hasErrors('parentsNo')}" th:errors="*{parentsNo}"
+                           class="alert alert-danger"></label>
+                    <input type="text" th:field="*{parentsNo}" placeholder="parentsNo"
+                           class="form-control input-lg"/>
+                </div>
+                <div class="form-group">
+                    <label th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                           class="alert alert-danger"></label>
+                    <input type="text" th:field="*{username}" placeholder="Username"
+                           class="form-control input-lg"/>
+                </div>
+                    <div class="form-group">
+                    <label th:if="${#fields.hasErrors('roomNo')}" th:errors="*{roomNo}"
+                           class="alert alert-danger"></label>
+                    <input type="text" th:field="*{roomNo}" placeholder="RoomNo"
+                           class="form-control input-lg"/>
+                </div>
+                <div class="form-group">
+                               <label th:if="${#fields.hasErrors('pgImage')}" th:errors="*{pgImage}"
+                           class="alert alert-danger"></label>
+                    <input type="file" th:field="*{pgImage}" 
+                           class="form-control-file"/>
+                </div>
+                
+               
+			<input type="submit" value="Update" />
+			</td>
+			 </tr>
+				</table>
+		</form>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+</head>
+
+<body>
+
+<div th:fragment="products">
+    <div class="panel-default well" th:each="product : ${products}">
+
+        <div class="row panel-footer">
+            <div th:inline="text" class="col-md-2">username: [[${product.username}]] </div>
+            <div th:inline="text" class="col-md-9">email: [[${product.email}]]</div>
+             <div th:inline="text" class="col-md-2">Price: [[${product.phoneNo}]] </div>
+            <div th:inline="text" class="col-md-9">address: [[${product.address}]]</div>
+             <div th:inline="text" class="col-md-2">occupation: [[${product.occupation}]] </div>
+            <div th:inline="text" class="col-md-9">adharNo: [[${product.adharNo}]]</div>
+             <div th:inline="text" class="col-md-2">roomNo: [[${product.roomNo}]] </div>
+            <div th:inline="text" class="col-md-9">parentsNo: [[${product.parentsNo}]]</div>
+            
+            <img class='img-thumbnail' th:src="'data:image/jpg;base64,' + ${imgUtil.getImgData(product.image)}" width="50" height="60"/>
+            <a th:href="@{'/application/{id}'(id=${product.id})}" class="col-md-1"
+               sec:authorize="isAuthenticated()" th:if="${product.phoneNo}>0">
+                <button type="button" class="btn btn-primary" th:text="EDIT">EDIT</button>
+            </a>
+            
+                 <a th:href="@{'/application/removePg/{id}'(id=${product.id})}" class="col-md-1"
+               sec:authorize="isAuthenticated()" th:if="${product.phoneNo}>0">
+                <button type="button" class="btn btn-primary" th:text="DELETE">DELETE</button>
+            </a>
+        </div>
+        <br></br>
+    </div>
+</div>
+
+</body>
+</html>
